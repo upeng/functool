@@ -2,20 +2,21 @@
 /**
  * 分页（基于bootstrap）:
  * @author 		upfriend
- * @version 	1.0 - 2017-01-03
+ * @since 	    2017-01-03
  * @package		pagination
  */
 
-$query = array('status' => 1, 'start' => '2015-12-21', 'end' => '2016-12-21');
-echo pagination(10, 100000, 20, $query);
+$query = array('status' => 1);
+$page = $_GET['page'];
+echo pagination($page, 100000, 20, $query);
 
 /**
  * 
- * @param  [int] $page 				当前页
- * @param  [int] $total 			总条数
- * @param  [int] $pageSize			页大小
- * @param  [array] $otherQueryArr   其他请求参数（GET）
- * @return [string]					分页html，bootstrap下的外层加上nav标签
+ * @param  [int] $page  当前页
+ * @param  [int] $total 总条数
+ * @param  [int] $pageSize 页大小
+ * @param  [array] $otherQueryArr 其他请求参数（GET）
+ * @return [string]	分页html，bootstrap下的外层加上nav标签
  */
 function pagination($page, $total, $pageSize, $otherQueryArr = array()) 
 {
@@ -63,7 +64,8 @@ function pagination($page, $total, $pageSize, $otherQueryArr = array())
 
         $renderPages .= $page > 1 ? '<li><a href="?page=' . ($page - 1) . $otherQueryString . '" >上一页</a></li>' : '';
 
-        for($i = $from; $i <= $to; $i++) {
+        for($i = $from; $i <= $to; $i++) 
+        {
             $renderPages .= $i == $page ? '<li class="active"><a href="?page=' . $i . $otherQueryString . '" >' . $i . '</a></li>' : '<li><a href="?page=' . $i . $otherQueryString . '" >' . $i . '</a></li>';
         }
 
