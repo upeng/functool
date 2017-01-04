@@ -2,12 +2,13 @@
 /**
  * 分页（基于bootstrap）:
  * @author 		upfriend
- * @version 	1.0 - 2017-01-03
+ * @since 	    2017-01-03
  * @package		pagination
  */
 
-$query = array('status' => 1, 'start' => '2015-12-21', 'end' => '2016-12-21');
-echo pagination(10, 100000, 20, $query);
+$query = array('status' => 1);
+$page = $_GET['page'];
+echo pagination($page, 100000, 20, $query);
 
 /**
  * 
