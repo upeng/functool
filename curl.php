@@ -7,7 +7,8 @@ function curl_get($url)
      
     curl_setopt($ch, CURLOPT_URL, $url);
     
-    curl_setopt($ch, CURLOPT_HEADER, 1);//设置头文件的信息作为数据流输出
+    $header = [];
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);//设置头文件的信息作为数据流输出
     
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//设置获取的信息以文件流的形式返回，而不是直接输出。
     
@@ -25,7 +26,7 @@ function curl_post($url, $postData = array())
 
     curl_setopt($ch, CURLOPT_URL, $url);
     
-    curl_setopt($ch, CURLOPT_HEADER, 1); //设置头文件的信息作为数据流输出
+    curl_setopt($ch, CURLOPT_HTTPHEADER, 1); //设置头文件的信息作为数据流输出
     
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);//设置获取的信息以文件流的形式返回，而不是直接输出。
     
